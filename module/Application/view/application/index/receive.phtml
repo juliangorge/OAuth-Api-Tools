@@ -1,0 +1,11 @@
+<script>
+    // Call the original page with the token received from our API
+    var token = location.search.replace('?token=', '');
+    window.opener.success(token);
+    // Close this popup
+    window.close();
+</script>
+
+<p>We logged in via a third party provider, and gave our API a token. This
+  token will now be sent to the main page in order to be injected in
+  future API calls.</p>

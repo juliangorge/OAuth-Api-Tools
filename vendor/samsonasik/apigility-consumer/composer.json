@@ -1,0 +1,67 @@
+{
+    "name": "samsonasik/apigility-consumer",
+    "type": "library",
+    "description": "Laminas API Tools Client API Service Consumer",
+    "keywords": [
+        "apigility",
+        "laminas",
+        "api",
+        "laminas2",
+        "laminas3",
+        "mezzio",
+        "client",
+        "consumer",
+        "http",
+        "oauth"
+    ],
+    "homepage": "https://github.com/samsonasik/ApigilityConsumer",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Abdul Malik Ikhsan",
+            "email": "samsonasik@gmail.com",
+            "homepage": "http://samsonasik.wordpress.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.1",
+        "laminas/laminas-http": "^2.6",
+        "laminas/laminas-json": "^3.1.2",
+        "laminas/laminas-servicemanager": "^3.3.0",
+        "laminas/laminas-stdlib": "^3.2.1"
+    },
+    "require-dev": {
+        "guzzlehttp/guzzle": "^6.3",
+        "kahlan/kahlan": "^4.0",
+        "laminas/laminas-coding-standard": "^2.0",
+        "php-coveralls/php-coveralls": "^2.0",
+        "phpstan/phpstan": "^0.11.19",
+        "symfony/yaml": "^3.2.7"
+    },
+    "config": {
+        "bin-dir": "bin"
+    },
+    "extra": {
+        "zf": {
+            "module": "ApigilityConsumer",
+            "config-provider": "ApigilityConsumer\\ConfigProvider"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "ApigilityConsumer\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "ApigilityConsumer\\Spec\\": "spec/"
+        }
+    },
+    "minimum-stability": "alpha",
+    "prefer-stable": true,
+    "scripts": {
+        "cs-check": "phpcs",
+        "cs-fix": "phpcbf"
+    }
+}

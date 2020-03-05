@@ -1,0 +1,48 @@
+
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '540716326549658',
+      cookie     : true,
+      xfbml      : true,
+      version    : 'v6.0'
+    });
+      
+    FB.AppEvents.logPageView();   
+      
+  };
+
+  (function(d, s, id){
+     var js, fjs = d.getElementsByTagName(s)[0];
+     if (d.getElementById(id)) {return;}
+     js = d.createElement(s); js.id = id;
+     js.src = "https://connect.facebook.net/en_US/sdk.js";
+     fjs.parentNode.insertBefore(js, fjs);
+   }(document, 'script', 'facebook-jssdk'));
+</script>
+<script>
+    function openpopup(a) {
+      console.log(a.href);
+      console.log('start login: ' + a.href);
+      window.open(a.href, "", "width=600px,height=300px");
+
+      return false;
+    }
+
+    function success(token) {
+      console.log('login success !', token);
+      var user = JSON.parse(atob(token.split('.')[1]));
+      console.log(user);
+
+      document.body.innerHTML += '<hr><img src="' + user.photo + '" width="50" /> ' + user.name + ' (#' + user.id + ')';
+
+      // store token in local storage
+      // use token for all API request
+    }
+  </script>
+</head>
+<h1>Login demo page</h1>
+<p>This simulates a page served from <strong>WWW</strong>.example.com and should be served as such to demonstrate CORS issues. Open the console to see what's going on.</p>
+<a onclick="return openpopup(this)" href="https://api.edoctor.test/hybridauth?provider=Facebook">Login with Facebook</a>
+
+https://www.facebook.com/dialog/oauth?response_type=code&client_id=540716326549658&redirect_uri=https%3A%2F%2Fapi.edoctor.test%2Fhybridauth%2Fcallback%3Fprovider%3DFacebook&scope=email%2C%20public_profile&state=HA-31TYK2V5S40A796FNZ8WIMPDXHCJEUBOQRGL

@@ -1,0 +1,26 @@
+<div class="row">
+    <h1>Hola mundo!</h1>
+    <form method="POST">
+        <input type="text" class="form-control" name="username" value="testuser" /> 
+        <input type="password" class="form-control" name="password" value="testpass" /> 
+        <input type="hidden" name="grant_type" value="password" /> 
+        <input type="hidden" name="client_id" value="testclient2" /> 
+        <input type="submit" class="btn btn-primary" value="Enviar" />
+    </form>
+</div>
+<script>
+
+$(document).ready(function(){
+    $('form').submit(function(event){
+        event.preventDefault();
+        $.ajax({
+            url:'/oauth',
+            method:'post',
+            data:$('form').serialize(),
+            success:function(data){
+                //window.location.href = '/?access_token='+data.access_token;
+            }
+        });
+    });
+});
+</script>
